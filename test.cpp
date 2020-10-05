@@ -5,8 +5,10 @@ using namespace std;
 
 int main()
 {
-  vector<string> c = {"leo"};
-  cout << c[1];
+  string s = "a123";
+  for(auto& s : s){
+    cout << s<<endl;
+  }
 
   return 0;
 }
