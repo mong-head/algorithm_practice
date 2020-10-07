@@ -5,10 +5,15 @@ using namespace std;
 
 int main()
 {
-  string s = "a123";
-  for(auto& s : s){
-    cout << s<<endl;
+  int a = 100;
+  char c = 'z';
+  switch(a/10){
+    case 10:
+    case 9: c = 'A';
+    case 8 : c = "B";
+    default c = "F";
   }
+  c
 
   return 0;
 }
