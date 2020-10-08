@@ -5,15 +5,21 @@ using namespace std;
 
 int main()
 {
-  int a = 100;
-  char c = 'z';
-  switch(a/10){
-    case 10:
-    case 9: c = 'A';
-    case 8 : c = "B";
-    default c = "F";
-  }
-  c
+  vector<int> u={1};
+  if(u.front()==1) cout << u.front()<<endl;
+  else cout <<'n';
+
+  u.erase(u.begin());
+
+  cout << *u.begin()<<endl;
+  // if(u[0]==1) cout << u[0]<<endl;
+  // else cout <<'n';
+  //
+  // cout <<u.front();
+  // u.erase(u.begin());
+  // if(u.front()==1) cout << "y";
+  // else cout <<'n';
+
 
   return 0;
 }

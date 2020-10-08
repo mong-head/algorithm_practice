@@ -11,7 +11,8 @@ class false_r{
     double false_rate;
     false_r(int s, double fr){stage=s;false_rate=fr;}
     bool operator<(false_r& f){
-        return this->false_rate > f.false_rate;
+      if(this->false_rate == f.false_rate) return this->stage < f.stage;
+      else return this->false_rate > f.false_rate;
     }
 };
 
@@ -26,28 +27,24 @@ vector<int> solution(int N, vector<int> stages) {
     for(int i=1;i<N+1;i++){
         size = stages.size();
         num_f=0;
-        while(stages.front()==i){
+        while(stages.front()==i&&stages.size()>0){
             stages.erase(stages.begin());
             num_f++;
         }
-        cout <<size;
-        cout <<(double)num_f/size<<endl;
-
         false_r tmp(i,(double)num_f/size);
         f.push_back(tmp);
     }
     sort(f.begin(),f.end());
     for(auto& a : f){
-      //cout << a.stage;
         answer.push_back(a.stage);
     }
 
     return answer;
 }
 int main(){
-  //vector<int> stages = {2,1,2,6,2,4,3,3};
-  vector<int> stages = {4,4,4,4,4};
-  vector<int> s = solution(4,stages);
+  vector<int> stages = {2,1,2,6,2,4,3,3};
+  //vector<int> stages = {4,4,4,4,4};
+  vector<int> s = solution(5,stages);
   for(auto& a : s){
     cout << a;
   }
