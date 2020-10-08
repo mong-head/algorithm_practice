@@ -31,7 +31,9 @@ vector<int> solution(int N, vector<int> stages) {
             stages.erase(stages.begin());
             num_f++;
         }
-        false_r tmp(i,(double)num_f/size);
+        if(size==0)rate = 0;
+        else rate = (double)num_f/size;
+        false_r tmp(i,rate);
         f.push_back(tmp);
     }
     sort(f.begin(),f.end());
