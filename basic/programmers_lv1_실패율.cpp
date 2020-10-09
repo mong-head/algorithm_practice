@@ -21,6 +21,7 @@ vector<int> solution(int N, vector<int> stages) {
     vector<int> answer;
     vector<false_r> f;
     int size,num_f;
+    double rate;
 
     sort(stages.begin(),stages.end());
 
