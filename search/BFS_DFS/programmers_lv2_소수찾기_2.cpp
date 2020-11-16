@@ -9,6 +9,7 @@
 using namespace std;
 
 set<int> result_per;
+set<int> prime_set;
 vector<char> v;
 string s;
 int max_;
@@ -36,7 +37,7 @@ void permutation(string& nums, vector<bool>& check, int n, int r){
 }
 
 //에라토스테네스 이용
-set<int> is_prime_Era(int n) {
+void is_prime_Era(int n) {
     int answer = 0;
     int prime[n+1];
     for(int i=0;i<=n;i++) prime[i] = i;
@@ -49,11 +50,9 @@ set<int> is_prime_Era(int n) {
         }
     }
 
-    set<int> prime_set;
     for(int i=2;i<=n;i++){
         if(prime[i]) prime_set.insert(prime[i]);
     }
-    return prime_set;
 }
 bool compare(int a, int b){
   //큰거앞 정렬
@@ -72,12 +71,12 @@ int solution(string numbers) {
 
     //prime 목록 구하기-에라토스테네스의 체
     sort(numbers.begin(),numbers.end(),compare);
-    set<int> prime = is_prime_Era(stoi(numbers));
+    is_prime_Era(stoi(numbers));
 
     //교집합 구하기
     unordered_map<int, int> all_prime;
     for(auto& per : result_per) all_prime[per]++;
-    for(auto& pri : prime) all_prime[pri]++;
+    for(auto& pri : prime_set) all_prime[pri]++;
 
     for(pair<int,int> a : all_prime){
         if(a.second == 2) {
