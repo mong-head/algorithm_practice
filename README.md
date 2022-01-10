@@ -2,6 +2,6 @@
 
 * language
   * C++
-  * python
+  * [python](./PYTHON.md)
 
 * [basic](basic)
